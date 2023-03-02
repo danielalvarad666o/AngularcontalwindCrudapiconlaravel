@@ -18,6 +18,9 @@ import { EditIngredientesComponent } from './componentes/ingredientes/edit-ingre
 import { CreatePlatosComponent } from './componentes/tiposPlatos/create-platos/create-platos.component';
 import { SeePlatosComponent } from './componentes/tiposPlatos/see-platos/see-platos.component';
 import { EditPlatosComponent } from './componentes/tiposPlatos/edit-platos/edit-platos.component'; 
+import { VerconductorComponent } from './Conductor/verconductor/verconductor.component';
+import { EditarConductorComponent } from './Conductor/editar-conductor/editar-conductor.component';
+import { CrearconductorComponent } from './Conductor/crearconductor/crearconductor.component';
 
 
 const routes: Routes = [
@@ -44,6 +47,11 @@ const routes: Routes = [
   {path: 'platos-info', component: SeePlatosComponent, canActivate: [AuthGuard, RolGuard], data: { roles: [1,2,3] }},
   {path: 'platos-edit/:id', component: EditPlatosComponent, canActivate: [AuthGuard, RolGuard], data: { roles: [1,2] }},
   
+
+  //Conductor
+  {path:'conductor-info',component:VerconductorComponent},
+  {path:'conductor-edit/:id',component:EditarConductorComponent},
+  {path:'conductor-crear',component:CrearconductorComponent}
   // { path: 'registrarse', component: FormularioComponent},
 ];
 

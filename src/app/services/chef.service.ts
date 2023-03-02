@@ -15,7 +15,7 @@ export class ChefService {
 
   getChefs(): Observable<Chef[]> 
   {
-    return this.http.get<Chef[]>('http://192.168.123.110:8000/api/chef/infoyordi')
+    return this.http.get<Chef[]>('http://127.0.0.1:8000api/chef/infoyordi')
     .pipe(
       catchError(error => {
         this.message='Ocurrio un error';
@@ -25,7 +25,7 @@ export class ChefService {
     )
   }
   updateChef(chef: Chef, id :number): Observable<Chef> {
-    return this.http.put<Chef>(`http://192.168.123.110:8000/api/chef/updateyordi/`+ id, chef)
+    return this.http.put<Chef>(`http://127.0.0.1:8000/api/chef/updateyordi/`+ id, chef)
     .pipe(
       catchError(error => {
         this.message='Ocurrio un error';
@@ -36,7 +36,7 @@ export class ChefService {
 }
 mostrarChef(id: number)
 {
-  return this.http.get<Chef>('http://192.168.123.110:8000/api/chef/infoyordi' + '/' + id)
+  return this.http.get<Chef>('http://127.0.0.1:8000/api/chef/infoyordi' + '/' + id)
   .pipe(
     catchError(error => {
       this.message='Ocurrio un error';
@@ -47,7 +47,7 @@ mostrarChef(id: number)
 
 eliminarChef(id: number)
 {
-  return this.http.delete<Chef>('http://192.168.123.110:8000/api/chef/deleteyordi' + '/' + id)
+  return this.http.delete<Chef>('http://127.0.0.1:8000/api/chef/deleteyordi' + '/' + id)
   .pipe(
     catchError(error => {
       this.message='Ocurrio un error';

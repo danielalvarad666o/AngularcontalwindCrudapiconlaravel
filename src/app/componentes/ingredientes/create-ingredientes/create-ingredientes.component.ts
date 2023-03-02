@@ -23,7 +23,7 @@ export class CreateIngredientesComponent {
 
   crearIngredientes() {
    
-    const url = 'http://192.168.123.110:8000/api/ingredienteyordi';
+    const url = 'http://127.0.0.1:8000/api/ingredienteyordi';
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../../Interfaces/user.interface';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { SharedServiceService } from '../../services/shared-service.service';
+import { GlobalsService } from '../../globals.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
   showError: boolean = false;
   public apiFailed: boolean = false;
 
-  constructor(private fb: FormBuilder,private authService: AuthService,private sharedService: SharedServiceService,private router:Router,private route: ActivatedRoute) 
+  constructor(public globalsService: GlobalsService, private fb: FormBuilder,private authService: AuthService,private sharedService: SharedServiceService,private router:Router,private route: ActivatedRoute) 
   { 
   
     this.form= this.fb.group({
@@ -40,10 +41,13 @@ export class LoginComponent {
         }
         localStorage.setItem('id',response.user.id);
         localStorage.setItem('name',response.user.name);
-       
+        this.globalsService.setGlobalVar(response.user.rol_id);
+
+        
         localStorage.setItem('token',response.token);
         this.authService.info(response.user.id).subscribe(user =>
         { console.log(user);
+      
          
         });
         if(response.user.rol_id == 1){

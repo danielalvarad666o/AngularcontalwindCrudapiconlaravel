@@ -1,0 +1,67 @@
+
+
+
+<div class="relative overflow-x-auto w-4/5 mx-auto">
+    <button type="button" class="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+    routerLink="/conductor-crear">Crear Chef</button>
+    <table class="max-w-full w-full whitespace-nowrap rounded-lg overflow-hidden text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    #
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nombre
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Apellido Materno
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Apellido paterno
+                </th>
+               
+                <th scope="col" class="px-6 py-3">
+                   Edad
+                </th>
+             
+                 <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Edit</span>
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let con of conductor">
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" *ngIf="con.status !== 0">
+                  <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{con.id}}
+                  </th>
+                  <td class="px-6 py-4">
+                    {{con.nombre}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{con.A_materno}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{con.A_paterno}}
+                  </td>
+                  <td class="px-6 py-4">
+                    {{con.edad}}
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" [routerLink]="['/conductor-edit/', con.id]">Edit</a>
+                  </td>
+                   <td class="px-6 py-4 text-right">
+                    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline" (click)="borrarConductor(con.id)">Delete</a>
+                    </td> 
+                    
+              </ng-container>
+              
+        </tbody>
+        
+    </table>
+ 
+</div>

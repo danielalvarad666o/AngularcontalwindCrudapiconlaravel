@@ -13,6 +13,9 @@
           <li>
             <a class="text-blue-400 hover:text-blue-500" *ngIf="!isSessionActive()" routerLink="/login" routerLinkActive="active">Iniciar Sesión</a>
           </li>
+          <li>
+            <button *ngIf="isSessionActive()"  routerLink="/conductor-info" routerLinkActive="active" class="text-blue-400 hover:text-blue-500 text-left">Conductor</button>
+          </li> 
              
           <li>
             <button *ngIf="isSessionActive()"  routerLink="/chefs-info" routerLinkActive="active" class="text-blue-400 hover:text-blue-500 text-left">Chefs</button>
@@ -23,8 +26,8 @@
             <button *ngIf="isSessionActive()"  routerLink="/platos-info" class="text-blue-400 hover:text-blue-500 text-left">Tipo de Plato</button>
           </li>   
           <li>
-            <button *ngIf="isAdmin" (click)="getUser()" class="text-gray-500 hover:text-blue-500 text-right">Usuarios</button>
-          </li>  
+            <button *ngIf="globalsService.getGlobalVar()===1" (click)="getUser()" class="text-gray-500 hover:text-blue-500 text-right">Usuarios</button>
+          </li>
           <li>
             <button *ngIf="isSessionActive()" (click)="logOut()" class="text-gray-500 hover:text-blue-500 text-right">Cerrar Sesión</button>
           </li>    

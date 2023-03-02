@@ -2,6 +2,7 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule, Routes } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormularioComponent } from '../formulario/formulario.component';
+import { GlobalsService } from '../../globals.service';
 
 
 @Component({
@@ -13,9 +14,18 @@ export class NavBarComponent   implements OnInit{
   isAdmin: boolean = false;
   isEditor: boolean=  false;
   isViewer: boolean= false;
+  permiso: number=0;
+ 
+  
 
   
-constructor (private router: Router, private authService:AuthService) { }
+constructor (private router: Router, private authService:AuthService,public globalsService: GlobalsService) {
+ 
+ 
+ }
+ 
+ 
+ 
   logOut(){
     if (confirm ('¿Desea cerrar sesión?')){
       this.authService.logout();
@@ -30,7 +40,10 @@ constructor (private router: Router, private authService:AuthService) { }
   }
   
     ngOnInit() {
+     
+    
       const role = localStorage.getItem('rol_id');
+
       this.isAdmin = Number(role) == 1;
       this.isEditor = Number(role) == 2;
       this.isViewer = Number(role) == 3;

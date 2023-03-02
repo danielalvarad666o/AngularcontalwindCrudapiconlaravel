@@ -28,6 +28,9 @@ import { EditIngredientesComponent } from './componentes/ingredientes/edit-ingre
 import { SeePlatosComponent } from './componentes/tiposPlatos/see-platos/see-platos.component';
 import { CreatePlatosComponent } from './componentes/tiposPlatos/create-platos/create-platos.component';
 import { EditPlatosComponent } from './componentes/tiposPlatos/edit-platos/edit-platos.component';
+import { CrearconductorComponent } from './Conductor/crearconductor/crearconductor.component';
+import { VerconductorComponent } from './Conductor/verconductor/verconductor.component';
+import { EditarConductorComponent } from './Conductor/editar-conductor/editar-conductor.component';
 
 
 
@@ -54,7 +57,10 @@ import { EditPlatosComponent } from './componentes/tiposPlatos/edit-platos/edit-
     EditIngredientesComponent,
     SeePlatosComponent,
     CreatePlatosComponent,
-    EditPlatosComponent
+    EditPlatosComponent,
+    CrearconductorComponent,
+    VerconductorComponent,
+    EditarConductorComponent
     
   ],
   imports: [

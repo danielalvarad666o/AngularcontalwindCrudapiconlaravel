@@ -22,7 +22,7 @@ export class CreatePlatosComponent {
 
   crearPlato() {
    
-    const url = 'http://192.168.123.110:8000/api/tipo_platoyordi';
+    const url = 'http://127.0.0.1:8000/api/tipo_platoyordi';
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'

@@ -1,0 +1,63 @@
+
+
+<div class="font-sans">
+    <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 ">
+        <div class="relative sm:max-w-sm w-full">
+            <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                <label for="" class="block mt-2 text-2xl text-gray-700 text-center font-semibold">
+                   Registrar conductor
+                </label>
+                <form  [formGroup]="conductorForm" (ngSubmit)="onSubmit()" class="mt-10">
+                                    
+                    <div class="mt-7">   
+                                 
+                        <input type="text" formControlName="nombre"  class="form-control" placeholder="Nombres" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">        
+                        <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert" [hidden]="conductorForm.controls['nombre'].valid || conductorForm.controls['nombre'].pristine">
+                            <span *ngIf="conductorForm.controls['nombre'].errors?.['required']">Nombre !Requerido.</span>
+                            <span *ngIf="conductorForm.controls['nombre'].errors?.['minlength']">minimo 2 letras.</span>
+                          </div>                                  
+                    </div>
+        
+                    <div class="mt-7">        
+                        
+                        <input type="text" formControlName="A_materno" class="form-control" placeholder="Apellido Materno" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">        
+                        <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert" [hidden]="conductorForm.controls['A_materno'].valid || conductorForm.controls['A_materno'].pristine">
+                            <span *ngIf="conductorForm.controls['A_materno'].errors?.['required']">Ap Materno !Requerido .</span>
+          <span *ngIf="conductorForm.controls['A_materno'].errors?.['minlength']">Ap Materno minimo 2 letras.</span>
+                          </div>                                  
+                    </div>
+
+                    <div class="mt-7"> 
+                        
+                        <input type="text" formControlName="A_paterno" class="form-control" placeholder="Apellido Paterno" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">        
+                        <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert"  [hidden]="conductorForm.controls['A_paterno'].valid || conductorForm.controls['A_paterno'].pristine">
+                            <span *ngIf="conductorForm.controls['A_paterno'].errors?.['required']">Ap Paterno !Requerido .</span>
+                            <span *ngIf="conductorForm.controls['A_paterno'].errors?.['minlength']">Ap Paterno minimo 2 letras .</span>
+                          </div>                                  
+                    </div>
+
+                  
+                    
+                    <div class="mt-7">                
+                        <input type="text" formControlName="edad" class="form-control" placeholder="Edad" 
+                        class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0">   
+                        <div class="bg-red-100 rounded-lg py-5 px-6 mb-4 text-base text-red-700 mb-3" role="alert" [hidden]="conductorForm.controls['edad'].valid || conductorForm.controls['edad'].pristine">
+                            <span *ngIf="conductorForm.controls['edad'].errors?.['required']">La edad es requerida.</span>
+          <span *ngIf="conductorForm.controls['edad'].errors?.['min']">La edad mínima es 18 años.</span>
+          <span *ngIf="conductorForm.controls['edad'].errors?.['max']">La edad máxima es 87 años.</span>
+                          </div>                      
+                    </div>
+
+                    <div class="mt-7 flex flex-col items-center">
+                        <button class="bg-blue-500 hover:bg-blue-700 w-full text-white font-bold py-2 px-4 rounded-full hover:shadow-inner" 
+                        type="submit" 
+                        [disabled]="!conductorForm.valid">
+                           Crear chef
+                        </button>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

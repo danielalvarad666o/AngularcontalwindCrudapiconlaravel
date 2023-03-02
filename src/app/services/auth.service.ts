@@ -19,12 +19,12 @@ export class AuthService {
   // private role: string | null = null;
 
   
-  private apiUrl = 'http://192.168.123.110:8000/api/user/registro';
-  private apiUrl2 = 'http://192.168.123.110:8000/api/user';
-  private apiUrl3 = 'http://192.168.123.110:8000/api';
-  private apiUpdate = 'http://192.168.123.110:8000/api/user/update/status';
-  private Urole = 'http://192.168.123.110:8000/api/user/update/role';
-  private baseUrl='http://192.168.123.110:8000/api/user/update'
+  private apiUrl = 'http://127.0.0.1:8000/api/user/registro';
+  private apiUrl2 = 'http://127.0.0.1:8000/api/user';
+  private apiUrl3 = 'http://127.0.0.1:8000/api';
+  private apiUpdate = 'http://127.0.0.1:8000/api/user/update/status';
+  private Urole = 'http://127.0.0.1:8000/api/user/update/role';
+  private baseUrl='http://127.0.0.1:8000/api/user/update'
   private token: string | null = null;
   private role: string | null = null;
   
@@ -70,7 +70,7 @@ export class AuthService {
   // }
   async getUserRole() {
     try {
-      const response: any = await this.http.get('http://192.168.123.110:8000/api/usuario/rol').toPromise();
+      const response: any = await this.http.get('http://127.0.0.1:8000/api/usuario/rol').toPromise();
       return response.rol_id;
     } catch (error) {
       console.log(error);
@@ -96,7 +96,7 @@ export class AuthService {
   }
   deleteUser(id: number)
   {
-    return this.http.delete('http://192.168.123.110:8000/api/user/delete' + '/' + id)
+    return this.http.delete('hhttp://127.0.0.1:8000/api/user/delete' + '/' + id)
     .pipe(
       retry(3),
       catchError(this.handleError)
@@ -122,7 +122,7 @@ export class AuthService {
   }
   getUsers(): Observable<User[]> 
   {
-    return this.http.get<User[]>('http://192.168.123.110:8000/api/users')
+    return this.http.get<User[]>('http://127.0.0.1:8000/api/users')
     .pipe(
       retry(3),
       catchError(this.handleError)
